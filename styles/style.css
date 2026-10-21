@@ -1,0 +1,50 @@
+:root {
+  --bg: #121212;
+  --surface: #1e1e1e;
+  --surface-2: #2a2a2a;
+  --border: #333;
+  --text: #eee;
+  --muted: #9a9a9a;
+  --accent: #E40239;
+  --accent-text: #fff;
+  --whatsapp: #25D366;
+  --backdrop: rgba(0, 0, 0, 0.7);
+  --shadow: 0 0 16px rgba(0, 0, 0, 0.6);
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+#main-container {
+  width: 100%;
+}
+
+ip-embed-leaflet {
+  display: block;
+}
+
+#ip-placeholder {
+  display: block;
+}
+
+#downloadPdfBtn {
+  display: none; /* shown by pdf.js after the cover loads */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  padding: 10px 15px;
+  background: var(--accent);
+  color: var(--accent-text);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#downloadPdfBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

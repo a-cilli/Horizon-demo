@@ -1,0 +1,267 @@
+body {
+  padding-top: 56px;
+}
+
+/* ---------- Navbar ---------- */
+
+.cart-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  font-family: system-ui, sans-serif;
+}
+
+.cart-brand {
+  font-weight: 600;
+}
+
+.cart-btn-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: none;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cart-badge {
+  min-width: 20px;
+  padding: 1px 6px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--accent-text);
+  font-size: 12px;
+  text-align: center;
+}
+
+/* ---------- Product modal ---------- */
+
+.cart-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--backdrop);
+}
+
+.cart-modal-backdrop[hidden] {
+  display: none;
+}
+
+.cart-modal {
+  position: relative;
+  width: min(440px, calc(100% - 32px));
+  max-height: 80vh;
+  overflow-y: auto;
+  padding: 24px;
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  font-family: system-ui, sans-serif;
+}
+
+.cart-modal h2 {
+  margin-top: 0;
+}
+
+.cart-modal .cart-icon-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+}
+
+.cart-product-list,
+.cart-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cart-product-row,
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.cart-product-info,
+.cart-item-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.cart-price {
+  margin-top: 4px;
+}
+
+.cart-muted {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* ---------- Sidebar ---------- */
+
+.cart-sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10002;
+  width: min(360px, 100%);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--surface);
+  color: var(--text);
+  border-left: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transform: translateX(100%);
+  transition: transform 0.2s ease;
+  font-family: system-ui, sans-serif;
+  overflow: hidden;
+}
+
+.cart-sidebar.open {
+  transform: translateX(0);
+}
+
+.cart-sidebar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+
+.cart-sidebar-head h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.cart-total {
+  font-weight: 600;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* Only the item list scrolls. Header, total and button stay pinned. */
+.cart-items {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  /* iOS-style overlay scrollbar: thin, rounded, translucent */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.25) transparent;
+}
+
+.cart-items::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cart-items::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.cart-items::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+}
+
+.cart-items:hover::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.cart-items::-webkit-scrollbar-thumb:active {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+/* ---------- Buttons ---------- */
+
+.cart-btn {
+  padding: 10px 14px;
+  background: var(--accent);
+  color: var(--accent-text);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cart-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cart-btn-wa {
+  background: var(--whatsapp);
+  color: #0b0b0b;
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.cart-icon-btn {
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.cart-link {
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* ---------- Quantity stepper ---------- */
+
+.cart-qty {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cart-qty-btn {
+  width: 32px;
+  height: 32px;
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.cart-qty-btn:hover {
+  border-color: var(--muted);
+}
+
+.cart-qty-num {
+  min-width: 24px;
+  text-align: center;
+  font-weight: 600;
+}

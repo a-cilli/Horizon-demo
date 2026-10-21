@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Catálogo</title>
+    <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/nav.css" />
+    <link rel="stylesheet" href="styles/cart.css" /> 
+  </head>
+  <body>
+    <div id="main-container">
+      <!-- Cover image is injected here by horizon.js -->
+      <div id="ip-placeholder"></div>
+
+      <ip-embed-leaflet
+        id="horizon"
+        alias="kleemarkt/test-agustin"
+      ></ip-embed-leaflet>
+    </div>
+
+    <button id="downloadPdfBtn">Descargar PDF</button>
+
+    <!-- Order matters: covers first, then the scripts that use it -->
+    <script src="js/firstPage/covers.js"></script>
+    <script src="js/firstPage/generateFirstPage.js"></script>
+    <script src="js/firstPage/pdf.js"></script>
+    <script src="js/cart/cart.js"></script>
+    <script src="js/cart/whatsapp.js"></script>
+    <script src="js/cart/ui.js"></script>
+    <script src="js/cart/index.js"></script>
+    <script src="js/nav/nav.js"></script>
+
+    <script defer src="https://embed.ipaper.io/web.js" type="module"></script>
+  </body>
+</html>
